@@ -11,6 +11,6 @@ This repository contains the [Puppet Bolt](https://puppet.com/docs/bolt/0.x/bolt
 
 All Bolt tasks accept parameters based on the metadata.json for the relevant task. A Spotify token is required in order to run the tasks.
 
-List Kubernetes nodes:
+Get my playlists:
 
 ```bolt task run gen::swagger_gen_get_usersuser_idplaylists --nodes localhost endpoint_api=https://api.spotify.com/v1 user_id=<your user id> token="<your account token>" --modulepath ./```
