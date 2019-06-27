@@ -1,0 +1,46 @@
+{
+	"description": "[Get User's Followed Artists](https://developer.spotify.com/web-api/get-followed-artists/)",
+	"input_method": "stdin",
+	"parameters":{
+		"endpoint_api":{
+			   "description": "Kubernetes API endpoint",
+			   "type": "String"
+		},
+		"ca_file":{
+			   "description": "Certificate file path",
+			   "type": "Optional[String[1]]"
+		},
+		"token":{
+			   "description": "Authentication token obtained from 'kubectl describe secret <secret_name>'",
+			   "type": "Optional[String[1]]"
+		},
+		
+		
+		
+		
+		    
+			"type":{
+			   "description": "The ID type, currently only artist is supported.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"limit":{
+			   "description": "The maximum number of items to return",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"after":{
+			   "description": "The last artist ID retrieved from the previous request.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"artists":{
+			   "description": "Present if the type of followe items is 'artist'.",
+			   "type": "Optional[String[1]]"
+			}
+			
+	}
+}

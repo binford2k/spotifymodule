@@ -1,0 +1,70 @@
+{
+	"description": "[Get a List of Featured Playlists](https://developer.spotify.com/web-api/get-list-featured-playlists/)",
+	"input_method": "stdin",
+	"parameters":{
+		"endpoint_api":{
+			   "description": "Kubernetes API endpoint",
+			   "type": "String"
+		},
+		"ca_file":{
+			   "description": "Certificate file path",
+			   "type": "Optional[String[1]]"
+		},
+		"token":{
+			   "description": "Authentication token obtained from 'kubectl describe secret <secret_name>'",
+			   "type": "Optional[String[1]]"
+		},
+		
+		
+		
+		
+		    
+			"accept":{
+			   "description": "It is used to set specified media type.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"message":{
+			   "description": "A sentence describing the context for the featured playlists.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"playlists":{
+			   "description": "",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"limit":{
+			   "description": "The maximum number of items to return",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"offset":{
+			   "description": "The index of the first item to return",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"country":{
+			   "description": "The country (an ISO 3166-1 alpha-2 country code)",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"locale":{
+			   "description": "The desired language, consisting of an ISO 639 language code and an ISO 3166-1 alpha-2 country code, joined by an underscore. For example: es_MX, meaning 'Spanish (Mexico)'.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"timestamp":{
+			   "description": "A timestamp in ISO 8601 format (yyyy-MM-dd'T'HH:mm:ss) with the user's local time to get results tailored to a specific date and time in the day. If not provided, it defaults to the current UTC time. Example: '2014-10-23T09:00:00' for a user whose local time is 9AM.",
+			   "type": "Optional[String[1]]"
+			}
+			
+	}
+}

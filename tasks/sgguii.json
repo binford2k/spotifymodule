@@ -1,0 +1,136 @@
+{
+	"description": "[Get a Playlist](https://developer.spotify.com/web-api/get-playlist/)",
+	"input_method": "stdin",
+	"parameters":{
+		"endpoint_api":{
+			   "description": "Kubernetes API endpoint",
+			   "type": "String"
+		},
+		"ca_file":{
+			   "description": "Certificate file path",
+			   "type": "Optional[String[1]]"
+		},
+		"token":{
+			   "description": "Authentication token obtained from 'kubectl describe secret <secret_name>'",
+			   "type": "Optional[String[1]]"
+		},
+		
+		
+		
+		
+		    
+			"fields":{
+			   "description": "A comma-separated list of fields to filter query",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"uri":{
+			   "description": "Spotify URI of the playlist.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"owner":{
+			   "description": "",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"followers":{
+			   "description": "Information about the followers of the playlist.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"tracks":{
+			   "description": "",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"images":{
+			   "description": "The cover art for the album in various sizes, widest first.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"description":{
+			   "description": "The playlist description. Only returned for modified, verified playlists, otherwise null.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"snapshot_id":{
+			   "description": "The version identifier for the current playlist. Can be supplied in other requests to target a specific playlist version",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"type":{
+			   "description": "The object type: 'playlist'.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"href":{
+			   "description": "A link to the Web API endpoint providing full details of the playlist.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"collaborative":{
+			   "description": "True if the owner allows other users to modify the playlist.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"user_id":{
+			   "description": "The user's Spotify user ID.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"market":{
+			   "description": "The market (an ISO 3166-1 alpha-2 country code)",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"name":{
+			   "description": "The name of the playlist.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"playlist_id":{
+			   "description": "The Spotify playlist ID.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"accept":{
+			   "description": "It is used to set specified media type.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"id":{
+			   "description": "The Spotify ID of the playlist.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"public":{
+			   "description": "The playlist's public/private status: true the playlist is public, false the playlist is private, null the playlist status is not relevant. For more about public/private status, see Working with Playlists.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"external_urls":{
+			   "description": "Known external URLs for this album.",
+			   "type": "Optional[String[1]]"
+			}
+			
+	}
+}

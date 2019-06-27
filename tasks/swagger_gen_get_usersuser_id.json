@@ -1,0 +1,70 @@
+{
+	"description": "[Get a User's Profile](https://developer.spotify.com/web-api/get-users-profile/)",
+	"input_method": "stdin",
+	"parameters":{
+		"endpoint_api":{
+			   "description": "Kubernetes API endpoint",
+			   "type": "String"
+		},
+		"ca_file":{
+			   "description": "Certificate file path",
+			   "type": "Optional[String[1]]"
+		},
+		"token":{
+			   "description": "Authentication token obtained from 'kubectl describe secret <secret_name>'",
+			   "type": "Optional[String[1]]"
+		},
+		
+		
+		
+		
+		    
+			"displayname":{
+			   "description": "The name displayed on the user's profile.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"external_urls":{
+			   "description": "Known external URLs for this user.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"followers":{
+			   "description": "",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"href":{
+			   "description": "A link to the Web API endpoint for this user.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"id":{
+			   "description": "The Spotify ID for this user.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"type":{
+			   "description": "The object type: 'user'",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"user_id":{
+			   "description": "The user's Spotify user ID.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"uri":{
+			   "description": "The Spotify URI for the user.",
+			   "type": "Optional[String[1]]"
+			}
+			
+	}
+}

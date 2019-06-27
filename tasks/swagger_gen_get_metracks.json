@@ -1,0 +1,76 @@
+{
+	"description": "[Get Current User's Saved Tracks](https://developer.spotify.com/web-api/get-users-saved-tracks/)",
+	"input_method": "stdin",
+	"parameters":{
+		"endpoint_api":{
+			   "description": "Kubernetes API endpoint",
+			   "type": "String"
+		},
+		"ca_file":{
+			   "description": "Certificate file path",
+			   "type": "Optional[String[1]]"
+		},
+		"token":{
+			   "description": "Authentication token obtained from 'kubectl describe secret <secret_name>'",
+			   "type": "Optional[String[1]]"
+		},
+		
+		
+		
+		
+		    
+			"previous":{
+			   "description": "URL to the previous page of items. (null if none)",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"href":{
+			   "description": "A link to the Web API endpoint returning the full result of the request.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"items":{
+			   "description": "The requested data.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"next":{
+			   "description": "URL to the next page of items. (null if none)",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"limit":{
+			   "description": "The maximum number of items in the response (as set in the query or by default).",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"market":{
+			   "description": "The market (an ISO 3166-1 alpha-2 country code)",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"accept":{
+			   "description": "It is used to set specified media type.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"offset":{
+			   "description": "The offset of the items returned (as set in the query or by default).",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"total":{
+			   "description": "The total number of items available to return.",
+			   "type": "Optional[String[1]]"
+			}
+			
+	}
+}
