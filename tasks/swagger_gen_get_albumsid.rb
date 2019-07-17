@@ -114,8 +114,12 @@ def format_params(key_values)
   end
 
   op_params = [
+      op_param('album_type', 'body', 'album_type', 'album_type'),
+      op_param('artists', 'body', 'artists', 'artists'),
+      op_param('available_markets', 'body', 'available_markets', 'available_markets'),
+      op_param('copyrights', 'body', 'copyrights', 'copyrights'),
+      op_param('external_ids', 'body', 'external_ids', 'external_ids'),
       op_param('external_urls', 'body', 'external_urls', 'external_urls'),
-      op_param('followers', 'body', 'followers', 'followers'),
       op_param('genres', 'body', 'genres', 'genres'),
       op_param('href', 'body', 'href', 'href'),
       op_param('id', 'path', 'id', 'id'),
@@ -123,6 +127,9 @@ def format_params(key_values)
       op_param('market', 'query', 'market', 'market'),
       op_param('name', 'body', 'name', 'name'),
       op_param('popularity', 'body', 'popularity', 'popularity'),
+      op_param('release_date', 'body', 'release_date', 'release_date'),
+      op_param('release_date_precision', 'body', 'release_date_precision', 'release_date_precision'),
+      op_param('tracks', 'body', 'tracks', 'tracks'),
       op_param('type', 'body', 'type', 'type'),
       op_param('uri', 'body', 'uri', 'uri'),
     ]

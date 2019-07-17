@@ -4,7 +4,7 @@ require 'json'
 require 'puppet'
 require 'openssl'
 
-def get_artistsidalbums(*args)
+def put_usersuser_idplaylistsplaylist_idtracks(*args)
   header_params = {}
   
   params=args[0][1..-1].split(',')
@@ -20,11 +20,11 @@ def get_artistsidalbums(*args)
 
   # Remove task name from arguments - should contain all necessary parameters for URI
   arg_hash.delete('_task')
-  operation_verb = 'Get'
+  operation_verb = 'Put'
 
   query_params, body_params, path_params = format_params(arg_hash)
 
-  uri_string = "#{arg_hash['endpoint_api']}/artists/%{id}/albums" % path_params
+  uri_string = "#{arg_hash['endpoint_api']}/users/%{user_id}/playlists/%{playlist_id}/tracks" % path_params
 
   if query_params
     uri_string = uri_string + '?' + to_query(query_params)
@@ -114,16 +114,11 @@ def format_params(key_values)
   end
 
   op_params = [
-      op_param('album_type', 'query', 'album_type', 'album_type'),
-      op_param('href', 'body', 'href', 'href'),
-      op_param('id', 'path', 'id', 'id'),
-      op_param('items', 'body', 'items', 'items'),
-      op_param('limit', 'body', 'limit', 'limit'),
-      op_param('market', 'query', 'market', 'market'),
-      op_param('next', 'body', 'next', 'next'),
-      op_param('offset', 'body', 'offset', 'offset'),
-      op_param('previous', 'body', 'previous', 'previous'),
-      op_param('total', 'body', 'total', 'total'),
+      op_param('Accept', 'header', 'accept', 'accept'),
+      op_param('body', 'body', 'body', 'body'),
+      op_param('playlist_id', 'path', 'playlist_id', 'playlist_id'),
+      op_param('snapshot_id', 'body', 'snapshot_id', 'snapshot_id'),
+      op_param('user_id', 'path', 'user_id', 'user_id'),
     ]
   op_params.each do |i|
     location = i[:location]
@@ -148,7 +143,7 @@ end
 def task
   # Get operation parameters from an input JSON
   params = STDIN.read
-  result = get_artistsidalbums(params)
+  result = put_usersuser_idplaylistsplaylist_idtracks(params)
   if result.is_a? Net::HTTPSuccess
     puts result.body
   else

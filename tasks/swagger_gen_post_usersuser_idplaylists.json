@@ -19,6 +19,36 @@
 		
 		
 		    
+			"followers":{
+			   "description": "Information about the followers of the playlist.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"collaborative":{
+			   "description": "True if the owner allows other users to modify the playlist.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"href":{
+			   "description": "A link to the Web API endpoint providing full details of the playlist.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"name":{
+			   "description": "The name of the playlist.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"snapshot_id":{
+			   "description": "The version identifier for the current playlist. Can be supplied in other requests to target a specific playlist version",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
 			"user_id":{
 			   "description": "The user's Spotify user ID.",
 			   "type": "Optional[String[1]]"
@@ -31,44 +61,20 @@
 			}
 			,
 		    
-			"snapshot_id":{
-			   "description": "The version identifier for the current playlist. Can be supplied in other requests to target a specific playlist version",
-			   "type": "Optional[String[1]]"
-			}
-			,
-		    
-			"collaborative":{
-			   "description": "True if the owner allows other users to modify the playlist.",
-			   "type": "Optional[String[1]]"
-			}
-			,
-		    
 			"body":{
 			   "description": "",
 			   "type": "Optional[String[1]]"
 			}
 			,
 		    
-			"name":{
-			   "description": "The name of the playlist.",
+			"tracks":{
+			   "description": "",
 			   "type": "Optional[String[1]]"
 			}
 			,
 		    
-			"external_urls":{
-			   "description": "Known external URLs for this album.",
-			   "type": "Optional[String[1]]"
-			}
-			,
-		    
-			"type":{
-			   "description": "The object type: 'playlist'.",
-			   "type": "Optional[String[1]]"
-			}
-			,
-		    
-			"followers":{
-			   "description": "Information about the followers of the playlist.",
+			"description":{
+			   "description": "The playlist description. Only returned for modified, verified playlists, otherwise null.",
 			   "type": "Optional[String[1]]"
 			}
 			,
@@ -79,26 +85,20 @@
 			}
 			,
 		    
-			"href":{
-			   "description": "A link to the Web API endpoint providing full details of the playlist.",
-			   "type": "Optional[String[1]]"
-			}
-			,
-		    
 			"owner":{
 			   "description": "",
 			   "type": "Optional[String[1]]"
 			}
 			,
 		    
-			"images":{
-			   "description": "The cover art for the album in various sizes, widest first.",
+			"type":{
+			   "description": "The object type: 'playlist'.",
 			   "type": "Optional[String[1]]"
 			}
 			,
 		    
-			"description":{
-			   "description": "The playlist description. Only returned for modified, verified playlists, otherwise null.",
+			"external_urls":{
+			   "description": "Known external URLs for this album.",
 			   "type": "Optional[String[1]]"
 			}
 			,
@@ -115,8 +115,8 @@
 			}
 			,
 		    
-			"tracks":{
-			   "description": "",
+			"images":{
+			   "description": "The cover art for the album in various sizes, widest first.",
 			   "type": "Optional[String[1]]"
 			}
 			

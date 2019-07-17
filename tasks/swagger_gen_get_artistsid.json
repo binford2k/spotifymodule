@@ -19,26 +19,32 @@
 		
 		
 		    
+			"images":{
+			   "description": "Images of the artist in various sizes, widest first.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"name":{
+			   "description": "The name of the artist.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
 			"type":{
 			   "description": "The object type: 'artist'",
 			   "type": "Optional[String[1]]"
 			}
 			,
 		    
-			"external_urls":{
-			   "description": "Known external URLs for this artist.",
-			   "type": "Optional[String[1]]"
-			}
-			,
-		    
-			"followers":{
-			   "description": "",
-			   "type": "Optional[String[1]]"
-			}
-			,
-		    
 			"uri":{
 			   "description": "The Spotify URI for the artist.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"external_urls":{
+			   "description": "Known external URLs for this artist.",
 			   "type": "Optional[String[1]]"
 			}
 			,
@@ -55,8 +61,8 @@
 			}
 			,
 		    
-			"popularity":{
-			   "description": "The popularity of the artist. The value will be between 0 and 100, with 100 being the most popular. The artist's popularity is calculated from the popularity of all the artist's tracks.",
+			"followers":{
+			   "description": "",
 			   "type": "Optional[String[1]]"
 			}
 			,
@@ -67,14 +73,8 @@
 			}
 			,
 		    
-			"images":{
-			   "description": "Images of the artist in various sizes, widest first.",
-			   "type": "Optional[String[1]]"
-			}
-			,
-		    
-			"name":{
-			   "description": "The name of the artist.",
+			"popularity":{
+			   "description": "The popularity of the artist. The value will be between 0 and 100, with 100 being the most popular. The artist's popularity is calculated from the popularity of all the artist's tracks.",
 			   "type": "Optional[String[1]]"
 			}
 			

@@ -19,8 +19,8 @@
 		
 		
 		    
-			"previous":{
-			   "description": "URL to the previous page of items. (null if none)",
+			"total":{
+			   "description": "The total number of items available to return.",
 			   "type": "Optional[String[1]]"
 			}
 			,
@@ -37,12 +37,6 @@
 			}
 			,
 		    
-			"next":{
-			   "description": "URL to the next page of items. (null if none)",
-			   "type": "Optional[String[1]]"
-			}
-			,
-		    
 			"limit":{
 			   "description": "The maximum number of items in the response (as set in the query or by default).",
 			   "type": "Optional[String[1]]"
@@ -55,8 +49,14 @@
 			}
 			,
 		    
-			"accept":{
-			   "description": "It is used to set specified media type.",
+			"previous":{
+			   "description": "URL to the previous page of items. (null if none)",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"next":{
+			   "description": "URL to the next page of items. (null if none)",
 			   "type": "Optional[String[1]]"
 			}
 			,
@@ -67,8 +67,8 @@
 			}
 			,
 		    
-			"total":{
-			   "description": "The total number of items available to return.",
+			"accept":{
+			   "description": "It is used to set specified media type.",
 			   "type": "Optional[String[1]]"
 			}
 			

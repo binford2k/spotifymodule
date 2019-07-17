@@ -1,5 +1,5 @@
 {
-	"description": "[Get a User's Profile](https://developer.spotify.com/web-api/get-users-profile/)",
+	"description": "[Reorder or replace a Playlist's Tracks](https://developer.spotify.com/web-api/reorder-playlists-tracks/)",
 	"input_method": "stdin",
 	"parameters":{
 		"endpoint_api":{
@@ -19,50 +19,32 @@
 		
 		
 		    
-			"followers":{
-			   "description": "",
-			   "type": "Optional[String[1]]"
-			}
-			,
-		    
-			"href":{
-			   "description": "A link to the Web API endpoint for this user.",
-			   "type": "Optional[String[1]]"
-			}
-			,
-		    
-			"id":{
-			   "description": "The Spotify ID for this user.",
-			   "type": "Optional[String[1]]"
-			}
-			,
-		    
 			"user_id":{
 			   "description": "The user's Spotify user ID.",
 			   "type": "Optional[String[1]]"
 			}
 			,
 		    
-			"type":{
-			   "description": "The object type: 'user'",
+			"playlist_id":{
+			   "description": "The Spotify playlist ID.",
 			   "type": "Optional[String[1]]"
 			}
 			,
 		    
-			"uri":{
-			   "description": "The Spotify URI for the user.",
+			"accept":{
+			   "description": "It is used to set specified media type.",
 			   "type": "Optional[String[1]]"
 			}
 			,
 		    
-			"displayname":{
-			   "description": "The name displayed on the user's profile.",
+			"body":{
+			   "description": "",
 			   "type": "Optional[String[1]]"
 			}
 			,
 		    
-			"external_urls":{
-			   "description": "Known external URLs for this user.",
+			"snapshot_id":{
+			   "description": "The version identifier for the modified playlist. Can be supplied in other requests to target a specific playlist version.",
 			   "type": "Optional[String[1]]"
 			}
 			

@@ -19,50 +19,14 @@
 		
 		
 		    
-			"items":{
-			   "description": "The requested data.",
-			   "type": "Optional[String[1]]"
-			}
-			,
-		    
-			"previous":{
-			   "description": "URL to the previous page of items. (null if none)",
-			   "type": "Optional[String[1]]"
-			}
-			,
-		    
-			"locale":{
-			   "description": "The desired language, consisting of an ISO 639 language code and an ISO 3166-1 alpha-2 country code, joined by an underscore. For example: es_MX, meaning 'Spanish (Mexico)'.",
-			   "type": "Optional[String[1]]"
-			}
-			,
-		    
-			"accept":{
-			   "description": "It is used to set specified media type.",
-			   "type": "Optional[String[1]]"
-			}
-			,
-		    
-			"total":{
-			   "description": "The total number of items available to return.",
-			   "type": "Optional[String[1]]"
-			}
-			,
-		    
 			"href":{
 			   "description": "A link to the Web API endpoint returning the full result of the request.",
 			   "type": "Optional[String[1]]"
 			}
 			,
 		    
-			"next":{
-			   "description": "URL to the next page of items. (null if none)",
-			   "type": "Optional[String[1]]"
-			}
-			,
-		    
-			"limit":{
-			   "description": "The maximum number of items in the response (as set in the query or by default).",
+			"items":{
+			   "description": "The requested data.",
 			   "type": "Optional[String[1]]"
 			}
 			,
@@ -75,6 +39,42 @@
 		    
 			"country":{
 			   "description": "The country (an ISO 3166-1 alpha-2 country code)",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"next":{
+			   "description": "URL to the next page of items. (null if none)",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"previous":{
+			   "description": "URL to the previous page of items. (null if none)",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"total":{
+			   "description": "The total number of items available to return.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"limit":{
+			   "description": "The maximum number of items in the response (as set in the query or by default).",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"locale":{
+			   "description": "The desired language, consisting of an ISO 639 language code and an ISO 3166-1 alpha-2 country code, joined by an underscore. For example: es_MX, meaning 'Spanish (Mexico)'.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"accept":{
+			   "description": "It is used to set specified media type.",
 			   "type": "Optional[String[1]]"
 			}
 			

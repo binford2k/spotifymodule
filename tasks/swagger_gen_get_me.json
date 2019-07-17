@@ -19,12 +19,6 @@
 		
 		
 		    
-			"product":{
-			   "description": "The user's Spotify subscription level: 'premium', 'free', etc. (The subscription level 'open' can be considered the same as 'free'.) This field is only available when the current user has granted access to the user-read-private scope.",
-			   "type": "Optional[String[1]]"
-			}
-			,
-		    
 			"external_urls":{
 			   "description": "Known external URLs for this user.",
 			   "type": "Optional[String[1]]"
@@ -37,26 +31,32 @@
 			}
 			,
 		    
-			"href":{
-			   "description": "A link to the Web API endpoint for this user.",
-			   "type": "Optional[String[1]]"
-			}
-			,
-		    
 			"country":{
 			   "description": "The country of the user, as set in the user's account profile. An ISO 3166-1 alpha-2 country code. This field is only available when the current user has granted access to the user-read-private scope.",
 			   "type": "Optional[String[1]]"
 			}
 			,
 		    
-			"uri":{
-			   "description": "The Spotify URI for the user.",
+			"product":{
+			   "description": "The user's Spotify subscription level: 'premium', 'free', etc. (The subscription level 'open' can be considered the same as 'free'.) This field is only available when the current user has granted access to the user-read-private scope.",
 			   "type": "Optional[String[1]]"
 			}
 			,
 		    
-			"displayname":{
-			   "description": "The name displayed on the user's profile.",
+			"birthdate":{
+			   "description": "The user's date-of-birth. This field is only available when the current user has granted access to the user-read-birthdate scope.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"type":{
+			   "description": "The object type: 'user'",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"uri":{
+			   "description": "The Spotify URI for the user.",
 			   "type": "Optional[String[1]]"
 			}
 			,
@@ -73,14 +73,14 @@
 			}
 			,
 		    
-			"birthdate":{
-			   "description": "The user's date-of-birth. This field is only available when the current user has granted access to the user-read-birthdate scope.",
+			"displayname":{
+			   "description": "The name displayed on the user's profile.",
 			   "type": "Optional[String[1]]"
 			}
 			,
 		    
-			"type":{
-			   "description": "The object type: 'user'",
+			"href":{
+			   "description": "A link to the Web API endpoint for this user.",
 			   "type": "Optional[String[1]]"
 			}
 			

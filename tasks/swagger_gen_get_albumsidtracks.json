@@ -19,20 +19,62 @@
 		
 		
 		    
-			"id":{
-			   "description": "The Spotify ID for the album",
+			"type":{
+			   "description": "The object type: 'track'.",
 			   "type": "Optional[String[1]]"
 			}
 			,
 		    
-			"limit":{
-			   "description": "The maximum number of items in the response (as set in the query or by default).",
+			"available_markets":{
+			   "description": "A list of the countries in which the track can be played, identified by their ISO 3166-1 alpha-2 code. ",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"artists":{
+			   "description": "The artists who performed the track. Each artist object includes a link in href to more detailed information about the artist.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"uri":{
+			   "description": "The Spotify URI for the track.",
 			   "type": "Optional[String[1]]"
 			}
 			,
 		    
 			"offset":{
-			   "description": "The offset of the items returned (as set in the query or by default).",
+			   "description": "The index of the first item to return",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"is_playable":{
+			   "description": "Part of the response when Track Relinking is applied. If true, the track is playable in the given market. Otherwise false.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"href":{
+			   "description": "A link to the Web API endpoint providing full details of the track.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"external_urls":{
+			   "description": "Known external URLs for this track.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"track_number":{
+			   "description": "The number of the track. If an album has several discs, the track number is the number on the specified disc.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"id":{
+			   "description": "The Spotify ID for the track.",
 			   "type": "Optional[String[1]]"
 			}
 			,
@@ -43,32 +85,44 @@
 			}
 			,
 		    
-			"total":{
-			   "description": "The total number of items available to return.",
+			"disc_number":{
+			   "description": "The disc number (usually 1 unless the album consists of more than one disc).",
 			   "type": "Optional[String[1]]"
 			}
 			,
 		    
-			"href":{
-			   "description": "A link to the Web API endpoint returning the full result of the request.",
+			"explicit":{
+			   "description": "Whether or not the track has explicit lyrics (true = yes it does; false = no it does not OR unknown).",
 			   "type": "Optional[String[1]]"
 			}
 			,
 		    
-			"items":{
-			   "description": "The requested data.",
+			"duration_ms":{
+			   "description": "The track length in milliseconds.",
 			   "type": "Optional[String[1]]"
 			}
 			,
 		    
-			"next":{
-			   "description": "URL to the next page of items. (null if none)",
+			"limit":{
+			   "description": "The maximum number of items to return",
 			   "type": "Optional[String[1]]"
 			}
 			,
 		    
-			"previous":{
-			   "description": "URL to the previous page of items. (null if none)",
+			"name":{
+			   "description": "The name of the track.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"linked_from":{
+			   "description": "Part of the response when Track Relinking is applied, and the requested track has been replaced with different track. The track in the linked_from object contains information about the originally requested track.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"preview_url":{
+			   "description": "A URL to a 30 second preview (MP3 format) of the track.",
 			   "type": "Optional[String[1]]"
 			}
 			

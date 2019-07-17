@@ -1,0 +1,52 @@
+{
+	"description": "[Remove Tracks from a Playlist](https://developer.spotify.com/web-api/remove-tracks-playlist/)",
+	"input_method": "stdin",
+	"parameters":{
+		"endpoint_api":{
+			   "description": "Kubernetes API endpoint",
+			   "type": "String"
+		},
+		"ca_file":{
+			   "description": "Certificate file path",
+			   "type": "Optional[String[1]]"
+		},
+		"token":{
+			   "description": "Authentication token obtained from 'kubectl describe secret <secret_name>'",
+			   "type": "Optional[String[1]]"
+		},
+
+
+
+
+
+			"user_id":{
+			   "description": "The user's Spotify user ID.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+
+			"playlist_id":{
+			   "description": "The Spotify playlist ID.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+
+			"accept":{
+			   "description": "It is used to set specified media type.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+
+			"body":{
+			   "description": "",
+			   "type": "Optional[String[1]]"
+			}
+			,
+
+			"snapshot_id":{
+			   "description": "The version identifier for the modified playlist. Can be supplied in other requests to target a specific playlist version.",
+			   "type": "Optional[String[1]]"
+			}
+
+	}
+}

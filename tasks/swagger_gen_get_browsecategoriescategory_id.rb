@@ -2,21 +2,11 @@
 
 require 'json'
 require 'puppet'
-require 'openssl'
 
 def get_browsecategoriescategory_id(*args)
   header_params = {}
-  
-  params=args[0][1..-1].split(',')
-
-  arg_hash={}
-  params.each { |param|
-   mapValues= param.split(':',2)
-   if mapValues[1].include?(';')
-      mapValues[1].gsub! ';',','
-   end
-   arg_hash[mapValues[0][1..-2]]=mapValues[1][1..-2]
-  }
+  argstring = args[0].delete('\\')
+  arg_hash = JSON.parse(argstring)
 
   # Remove task name from arguments - should contain all necessary parameters for URI
   arg_hash.delete('_task')
@@ -24,51 +14,35 @@ def get_browsecategoriescategory_id(*args)
 
   query_params, body_params, path_params = format_params(arg_hash)
 
-  uri_string = "#{arg_hash['endpoint_api']}/browse/categories/%{category_id}" % path_params
+  uri_string = "https://api.spotify.com//browse/categories/%{category_id}" % path_params
 
-  if query_params
+  unless query_params.empty?
     uri_string = uri_string + '?' + to_query(query_params)
   end
 
   header_params['Content-Type'] = 'application/json' # first of #{parent_consumes}
 
-  if arg_hash['token']
-    header_params['Authorization'] = 'Bearer ' + arg_hash['token']
-  end
+  return nil unless authenticate(header_params) == true
 
   uri = URI(uri_string)
- 
-  verify_mode= OpenSSL::SSL::VERIFY_NONE
-  if arg_hash['ca_file']
-    verify_mode=OpenSSL::SSL::VERIFY_PEER
-  end
-
-  Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme == 'https', verify_mode: verify_mode, ca_file: arg_hash['ca_file']) do |http|
+  Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme == 'https') do |http|
     if operation_verb == 'Get'
       req = Net::HTTP::Get.new(uri)
     elsif operation_verb == 'Put'
       req = Net::HTTP::Put.new(uri)
     elsif operation_verb == 'Delete'
       req = Net::HTTP::Delete.new(uri)
-    elsif operation_verb == 'Post'
-      req = Net::HTTP::Post.new(uri)
     end
 
     header_params.each { |x, v| req[x] = v } unless header_params.empty?
-
     unless body_params.empty?
-      if body_params.key?('file_content')
-        req.body = body_params['file_content']
-      else
-        req.body = body_params.to_json
-      end
+      req.body=body_params.to_json
     end
 
     Puppet.debug("URI is (#{operation_verb}) #{uri} headers are #{header_params}")
     response = http.request req # Net::HTTPResponse object
+	Puppet.debug("Called (#{operation_verb}) endpoint at #{uri}")
     Puppet.debug("response code is #{response.code} and body is #{response.body}")
-    success = response.is_a? Net::HTTPSuccess
-    Puppet.debug("Called (#{operation_verb}) endpoint at #{uri}, success was #{success}")
     response
   end
 end
@@ -84,7 +58,8 @@ def to_query(hash)
 end
 
 def op_param(name, inquery, paramalias, namesnake)
-  { :name => name, :location => inquery, :paramalias => paramalias, :namesnake => namesnake }
+    operation_param = { :name => name, :location => inquery, :paramalias => paramalias, :namesnake => namesnake }
+    return operation_param
 end
 
 def format_params(key_values)
@@ -92,25 +67,10 @@ def format_params(key_values)
   body_params = {}
   path_params = {}
 
- key_values.each { | key, value |
-    if value.include?("=>")
-       Puppet.debug("Running hash from string on #{value}")
-       value.gsub!("=>",":")
-       value.gsub!("'","\"")
-       key_values[key] = JSON.parse(value)
-       Puppet.debug("Obtained hash #{key_values[key].inspect}")
-    end
-  }
-
-
-  if key_values.key?('body')
-    if File.file?(key_values['body'])
-      if key_values['body'].include?('json')
-        body_params['file_content'] = File.read(key_values['body'])
-      else
-        body_params['file_content'] =JSON.pretty_generate(YAML.load_file(key_values['body']))
-      end
-    end
+  key_values.each do |key,value|
+   if value.include? '{'
+    key_values[key]=JSON.parse(value.gsub("\'","\""))
+   end
   end
 
   op_params = [
@@ -142,6 +102,38 @@ def format_params(key_values)
   
   return query_params,body_params,path_params
 end
+def fetch_oauth2_token
+  Puppet.debug('Getting oauth2 token')
+  @client_id = ENV['gen_client_id']
+  @client_secret = ENV['gen_client_secret']
+  @tenant_id = ENV['gen_tenant_id']
+  uri = URI("https://accounts.spotify.com/authorize")
+  response = Net::HTTP.post_form(uri,
+                                  'grant_type' => 'client_credentials',
+                                  'client_id'     => @client_id,
+                                  'client_secret' => @client_secret,
+                                  'resource'      => '')
+
+  Puppet.debug("get oauth2 token response code is #{response.code} and body is #{response.body}")
+  success = response.is_a? Net::HTTPSuccess
+  if success
+    return JSON[response.body]["access_token"]
+  else
+    raise Puppet::Error, "Unable to get oauth2 token - response is #{response} and body is #{response.body}"
+  end
+end
+
+def authenticate(header_params)
+  token = fetch_oauth2_token
+  if token
+    header_params['Authorization'] = "Bearer #{token}"
+    return true
+  else
+    return false
+  end
+end
+
+
 
 def task
   # Get operation parameters from an input JSON
@@ -156,7 +148,7 @@ rescue StandardError => e
   result = {}
   result[:_error] = {
     msg: e.message,
-    kind: 'puppetlabs-kubernetes/error',
+    kind: 'puppetlabs-azure_arm/error',
     details: { class: e.class.to_s },
   }
   puts result

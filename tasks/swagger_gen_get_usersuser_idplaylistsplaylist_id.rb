@@ -4,19 +4,10 @@ require 'json'
 require 'puppet'
 require 'openssl'
 
-def get_artistsidalbums(*args)
+def get_usersuser_idplaylistsplaylist_id(*args)
   header_params = {}
-  
-  params=args[0][1..-1].split(',')
 
-  arg_hash={}
-  params.each { |param|
-   mapValues= param.split(':',2)
-   if mapValues[1].include?(';')
-      mapValues[1].gsub! ';',','
-   end
-   arg_hash[mapValues[0][1..-2]]=mapValues[1][1..-2]
-  }
+  arg_hash = JSON.parse(args.first)
 
   # Remove task name from arguments - should contain all necessary parameters for URI
   arg_hash.delete('_task')
@@ -24,7 +15,11 @@ def get_artistsidalbums(*args)
 
   query_params, body_params, path_params = format_params(arg_hash)
 
-  uri_string = "#{arg_hash['endpoint_api']}/artists/%{id}/albums" % path_params
+  require 'pry'
+  binding.pry
+
+
+  uri_string = "#{arg_hash['endpoint_api']}/users/%{user_id}/playlists/%{playlist_id}" % path_params
 
   if query_params
     uri_string = uri_string + '?' + to_query(query_params)
@@ -37,7 +32,7 @@ def get_artistsidalbums(*args)
   end
 
   uri = URI(uri_string)
- 
+
   verify_mode= OpenSSL::SSL::VERIFY_NONE
   if arg_hash['ca_file']
     verify_mode=OpenSSL::SSL::VERIFY_PEER
@@ -114,16 +109,25 @@ def format_params(key_values)
   end
 
   op_params = [
-      op_param('album_type', 'query', 'album_type', 'album_type'),
+      op_param('Accept', 'header', 'accept', 'accept'),
+      op_param('collaborative', 'body', 'collaborative', 'collaborative'),
+      op_param('description', 'body', 'description', 'description'),
+      op_param('external_urls', 'body', 'external_urls', 'external_urls'),
+      op_param('fields', 'query', 'fields', 'fields'),
+      op_param('followers', 'body', 'followers', 'followers'),
       op_param('href', 'body', 'href', 'href'),
-      op_param('id', 'path', 'id', 'id'),
-      op_param('items', 'body', 'items', 'items'),
-      op_param('limit', 'body', 'limit', 'limit'),
+      op_param('id', 'body', 'id', 'id'),
+      op_param('images', 'body', 'images', 'images'),
       op_param('market', 'query', 'market', 'market'),
-      op_param('next', 'body', 'next', 'next'),
-      op_param('offset', 'body', 'offset', 'offset'),
-      op_param('previous', 'body', 'previous', 'previous'),
-      op_param('total', 'body', 'total', 'total'),
+      op_param('name', 'body', 'name', 'name'),
+      op_param('owner', 'body', 'owner', 'owner'),
+      op_param('playlist_id', 'path', 'playlist_id', 'playlist_id'),
+      op_param('public', 'body', 'public', 'public'),
+      op_param('snapshot_id', 'body', 'snapshot_id', 'snapshot_id'),
+      op_param('tracks', 'body', 'tracks', 'tracks'),
+      op_param('type', 'body', 'type', 'type'),
+      op_param('uri', 'body', 'uri', 'uri'),
+      op_param('user_id', 'path', 'user_id', 'user_id'),
     ]
   op_params.each do |i|
     location = i[:location]
@@ -141,14 +145,14 @@ def format_params(key_values)
       path_params[name_snake.to_sym] = ENV["azure__#{name_snake}"] unless ENV["<no value>_#{name_snake}"].nil?
     end
   end
-  
+
   return query_params,body_params,path_params
 end
 
 def task
   # Get operation parameters from an input JSON
   params = STDIN.read
-  result = get_artistsidalbums(params)
+  result = get_usersuser_idplaylistsplaylist_id(params)
   if result.is_a? Net::HTTPSuccess
     puts result.body
   else
@@ -158,6 +162,7 @@ rescue StandardError => e
   result = {}
   result[:_error] = {
     msg: e.message,
+    stack: e.backtrace,
     kind: 'puppetlabs-kubernetes/error',
     details: { class: e.class.to_s },
   }

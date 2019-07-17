@@ -1,5 +1,5 @@
 {
-	"description": "[Get a List of New Releases](https://developer.spotify.com/web-api/get-list-new-releases/)",
+	"description": "[Get a Playlist's Tracks](https://developer.spotify.com/web-api/get-playlists-tracks/)",
 	"input_method": "stdin",
 	"parameters":{
 		"endpoint_api":{
@@ -19,8 +19,32 @@
 		
 		
 		    
-			"country":{
-			   "description": "The country (an ISO 3166-1 alpha-2 country code)",
+			"accept":{
+			   "description": "It is used to set specified media type.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"previous":{
+			   "description": "URL to the previous page of items. (null if none)",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"user_id":{
+			   "description": "The user's Spotify user ID.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"playlist_id":{
+			   "description": "The Spotify playlist ID.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"limit":{
+			   "description": "The maximum number of items in the response (as set in the query or by default).",
 			   "type": "Optional[String[1]]"
 			}
 			,
@@ -31,14 +55,14 @@
 			}
 			,
 		    
-			"accept":{
-			   "description": "It is used to set specified media type.",
+			"fields":{
+			   "description": "A comma-separated list of fields to filter query",
 			   "type": "Optional[String[1]]"
 			}
 			,
 		    
-			"previous":{
-			   "description": "URL to the previous page of items. (null if none)",
+			"market":{
+			   "description": "The market (an ISO 3166-1 alpha-2 country code)",
 			   "type": "Optional[String[1]]"
 			}
 			,
@@ -63,12 +87,6 @@
 		    
 			"next":{
 			   "description": "URL to the next page of items. (null if none)",
-			   "type": "Optional[String[1]]"
-			}
-			,
-		    
-			"limit":{
-			   "description": "The maximum number of items in the response (as set in the query or by default).",
 			   "type": "Optional[String[1]]"
 			}
 			

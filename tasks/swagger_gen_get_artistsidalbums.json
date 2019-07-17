@@ -19,26 +19,14 @@
 		
 		
 		    
-			"name":{
-			   "description": "The name of the album.",
-			   "type": "Optional[String[1]]"
-			}
-			,
-		    
-			"href":{
-			   "description": "A link to the Web API endpoint providing full details of the album.",
-			   "type": "Optional[String[1]]"
-			}
-			,
-		    
-			"id":{
-			   "description": "The Spotify ID for the album.",
+			"total":{
+			   "description": "The total number of items available to return.",
 			   "type": "Optional[String[1]]"
 			}
 			,
 		    
 			"album_type":{
-			   "description": "The type of the album: one of 'album', 'single', or 'compilation'.",
+			   "description": "Filter by album types",
 			   "type": "Optional[String[1]]"
 			}
 			,
@@ -49,44 +37,44 @@
 			}
 			,
 		    
-			"available_markets":{
-			   "description": "The markets in which the album is available: ISO 3166-1 alpha-2 country codes. Note that an album is considered available in a market when at least 1 of its tracks is available in that market.",
+			"next":{
+			   "description": "URL to the next page of items. (null if none)",
 			   "type": "Optional[String[1]]"
 			}
 			,
 		    
-			"images":{
-			   "description": "The cover art for the album in various sizes, widest first.",
+			"href":{
+			   "description": "A link to the Web API endpoint returning the full result of the request.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"items":{
+			   "description": "The requested data.",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"previous":{
+			   "description": "URL to the previous page of items. (null if none)",
+			   "type": "Optional[String[1]]"
+			}
+			,
+		    
+			"id":{
+			   "description": "The Spotify ID for the artist",
 			   "type": "Optional[String[1]]"
 			}
 			,
 		    
 			"limit":{
-			   "description": "The maximum number of items to return",
+			   "description": "The maximum number of items in the response (as set in the query or by default).",
 			   "type": "Optional[String[1]]"
 			}
 			,
 		    
 			"offset":{
-			   "description": "The index of the first item to return",
-			   "type": "Optional[String[1]]"
-			}
-			,
-		    
-			"type":{
-			   "description": "The object type: 'album'.",
-			   "type": "Optional[String[1]]"
-			}
-			,
-		    
-			"external_urls":{
-			   "description": "Known external URLs for this album.",
-			   "type": "Optional[String[1]]"
-			}
-			,
-		    
-			"uri":{
-			   "description": "The Spotify URI for the album.",
+			   "description": "The offset of the items returned (as set in the query or by default).",
 			   "type": "Optional[String[1]]"
 			}
 			

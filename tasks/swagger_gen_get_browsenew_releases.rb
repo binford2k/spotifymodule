@@ -115,18 +115,14 @@ def format_params(key_values)
 
   op_params = [
       op_param('Accept', 'header', 'accept', 'accept'),
-      op_param('album_type', 'body', 'album_type', 'album_type'),
-      op_param('available_markets', 'body', 'available_markets', 'available_markets'),
       op_param('country', 'query', 'country', 'country'),
-      op_param('external_urls', 'body', 'external_urls', 'external_urls'),
       op_param('href', 'body', 'href', 'href'),
-      op_param('id', 'body', 'id', 'id'),
-      op_param('images', 'body', 'images', 'images'),
-      op_param('limit', 'query', 'limit', 'limit'),
-      op_param('name', 'body', 'name', 'name'),
-      op_param('offset', 'query', 'offset', 'offset'),
-      op_param('type', 'body', 'type', 'type'),
-      op_param('uri', 'body', 'uri', 'uri'),
+      op_param('items', 'body', 'items', 'items'),
+      op_param('limit', 'body', 'limit', 'limit'),
+      op_param('next', 'body', 'next', 'next'),
+      op_param('offset', 'body', 'offset', 'offset'),
+      op_param('previous', 'body', 'previous', 'previous'),
+      op_param('total', 'body', 'total', 'total'),
     ]
   op_params.each do |i|
     location = i[:location]
